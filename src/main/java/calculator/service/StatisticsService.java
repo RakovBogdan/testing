@@ -6,4 +6,9 @@ public interface StatisticsService {
     int getSubtractionsCount();
     int getMultiplicationsCount();
     int getDivisionsCount();
+
+    void incrementAdditionCount();
+    void incrementSubtractionsCount();
+    void incrementMultiplicationsCount();
+    void incrementDivisionsCount();
 }

@@ -4,11 +4,26 @@ import calculator.service.StatisticsService;
 
 public class StatisticsServiceImpl implements StatisticsService {
 
-    private int additionsCount;
-    private int subtractionsCount;
-    private int multiplicationsCount;
-    private int divisionsCount;
+    private int additionsCount = 0;
+    private int subtractionsCount = 0;
+    private int multiplicationsCount = 0;
+    private int divisionsCount = 0;
 
+    public void incrementAdditionCount() {
+        additionsCount++;
+    }
+
+    public void incrementSubtractionsCount() {
+        subtractionsCount++;
+    }
+
+    public void incrementMultiplicationsCount() {
+        multiplicationsCount++;
+    }
+
+    public void incrementDivisionsCount() {
+        divisionsCount++;
+    }
 
     @Override
     public int getAdditionsCount() {
@@ -28,21 +43,5 @@ public class StatisticsServiceImpl implements StatisticsService {
     @Override
     public int getDivisionsCount() {
         return divisionsCount;
-    }
-
-    public void setAdditionsCount(int additionsCount) {
-        this.additionsCount = additionsCount;
-    }
-
-    public void setSubtractionsCount(int subtractionsCount) {
-        this.subtractionsCount = subtractionsCount;
-    }
-
-    public void setMultiplicationsCount(int multiplicationsCount) {
-        this.multiplicationsCount = multiplicationsCount;
-    }
-
-    public void setDivisionsCount(int divisionsCount) {
-        this.divisionsCount = divisionsCount;
     }
 }
