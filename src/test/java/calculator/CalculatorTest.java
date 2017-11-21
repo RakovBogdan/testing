@@ -2,6 +2,8 @@ package calculator;
 
 import calculator.domain.ComplexObject;
 import calculator.service.CountingService;
+import calculator.service.FieldValidationService;
+import calculator.service.StatisticsService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,6 +17,12 @@ public class CalculatorTest {
 
     @Mock
     private CountingService countingService;
+
+    @Mock
+    private FieldValidationService validationService;
+
+    @Mock
+    private StatisticsService statisticsService;
 
     @InjectMocks
     private Calculator calculator;
@@ -37,5 +45,11 @@ public class CalculatorTest {
         Mockito.verify(countingService, Mockito.times(1))
                 .add(objectA, objectB);
 //        Mockito.reset(countingService);
+    }
+
+    @Test
+    public void statisticsAdditionsTest() {
+        ComplexObject objectA = new ComplexObject(1, 2);
+        ComplexObject objectB = new ComplexObject(3, 4);
     }
 }

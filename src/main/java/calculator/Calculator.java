@@ -24,54 +24,44 @@ public class Calculator {
     }
 
     public ComplexObject add(ComplexObject param1, ComplexObject param2) {
+        validateComplexObjects(param1, param2);
+
         statisticsService.incrementAdditionCount();
-
-        if (!param1.getService().equals(param2.getService())) {
-            throw new IllegalArgumentException();
-        }
-
-        fieldValidationService.validateFields(param1);
-        fieldValidationService.validateFields(param2);
 
         return countingService.add(param1, param2);
     }
 
     public ComplexObject subtract(ComplexObject param1, ComplexObject param2) {
-        statisticsService.getSubtractionsCount();
+        validateComplexObjects(param1, param2);
 
-        if (!param1.getService().equals(param2.getService())) {
-            throw new IllegalArgumentException();
-        }
+        statisticsService.incrementSubtractionsCount();
 
-        fieldValidationService.validateFields(param1);
-        fieldValidationService.validateFields(param2);
 
         return countingService.subtract(param1, param2);
     }
 
     public ComplexObject multiply(ComplexObject param1, ComplexObject param2) {
-        statisticsService.getMultiplicationsCount();
+        validateComplexObjects(param1, param2);
 
-        if (!param1.getService().equals(param2.getService())) {
-            throw new IllegalArgumentException();
-        }
-
-        fieldValidationService.validateFields(param1);
-        fieldValidationService.validateFields(param2);
+        statisticsService.incrementMultiplicationsCount();
 
         return countingService.multiply(param1, param2);
     }
 
     public ComplexObject divide(ComplexObject param1, ComplexObject param2) {
-        statisticsService.getDivisionsCount();
+        validateComplexObjects(param1, param2);
 
+        statisticsService.incrementDivisionsCount();
+
+        return countingService.divide(param1, param2);
+    }
+
+    private void validateComplexObjects(ComplexObject param1, ComplexObject param2) {
         if (!param1.getService().equals(param2.getService())) {
             throw new IllegalArgumentException();
         }
 
         fieldValidationService.validateFields(param1);
         fieldValidationService.validateFields(param2);
-
-        return countingService.divide(param1, param2);
     }
 }
