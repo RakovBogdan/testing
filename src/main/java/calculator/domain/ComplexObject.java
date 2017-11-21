@@ -61,4 +61,13 @@ public class ComplexObject {
         result = 31 * result + valueB;
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "ComplexObject{" +
+                "valueA=" + valueA +
+                ", valueB=" + valueB +
+                ", service=" + service +
+                '}';
+    }
 }
